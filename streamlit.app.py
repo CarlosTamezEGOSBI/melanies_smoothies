@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -34,6 +35,9 @@ if ingredients_list:
             ingredients_string += fruit_chosen
         else:
             ingredients_string += ", " + fruit_chosen #fruit_chosen + ", " #"', '" 
+        
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        fv_df =st.dataframe(data=fruityvice_response.json(), use_container_width=True)
         vRemaining = 4 - vCount
         vCount = vCount + 1 
 
@@ -65,8 +69,5 @@ if ingredients_list:
             if ingredients_string == "":
                 st.write("Choose your fruits befor order.")
 
-import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-#st.text(fruityvice_response)
-fv_df =st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+
 
