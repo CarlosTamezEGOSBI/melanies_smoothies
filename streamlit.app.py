@@ -64,3 +64,7 @@ if ingredients_list:
                 
             if ingredients_string == "":
                 st.write("Choose your fruits befor order.")
+
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
