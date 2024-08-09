@@ -34,9 +34,9 @@ if ingredients_list:
         elif vCount ==0:
             ingredients_string += fruit_chosen
         else:
-            ingredients_string += ", " + fruit_chosen #fruit_chosen + ", " #"', '" 
+            ingredients_string += ", " + fruit_chosen #fruit_chosen + ", " 
 
-        st.subheader(fruit_chosen += ' Nutrition Information')
+        st.subheader(fruit_chosen + ' Nutrition Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_chosen)
         fv_df =st.dataframe(data=fruityvice_response.json(), use_container_width=True)
         vRemaining = 4 - vCount
