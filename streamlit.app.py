@@ -35,15 +35,17 @@ vRemaining = 0
 
 if ingredients_list:
     for fruit_chosen in ingredients_list:
-        if vCount==4:
-            ingredients_string += fruit_chosen
-        elif vCount >= 5:
-            ingredients_string = ingredients_string
-        elif vCount ==0:
-            ingredients_string += fruit_chosen
-        else:
-            ingredients_string += ", " + fruit_chosen #fruit_chosen + ", " 
+        #if vCount==4:
+            #ingredients_string += fruit_chosen
+        #elif vCount >= 5:
+            #ingredients_string = ingredients_string
+        #elif vCount ==0:
+            #ingredients_string += fruit_chosen
+        #else:
+            #ingredients_string += ", " + fruit_chosen #fruit_chosen + ", " 
 
+        ingredients_string += fruit_chosen + " "
+        
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
         
